@@ -9,9 +9,13 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
 import { Actions, Router, Scene } from 'react-native-router-flux'
+import { Provider, connect } from 'react-redux'
+import configureStore from './store/configureStore'
 
 import Home from './app/Home'
 import Login from './app/Login'
+
+
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -31,10 +35,9 @@ type Props = {};
 export default class App extends Component<Props> {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>Welcom said hayani</Text>
-         <Scenes/>
-      </View>
+      <Provider store={store}>
+        <ConnectedRouter scenes={Scenes}/>
+      </Provider>
     );
   }
 }
