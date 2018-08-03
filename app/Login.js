@@ -17,13 +17,22 @@ const instructions = Platform.select({
 });
 
 type Props = {};
-export default class Login extends Component<Props> {
+import PropTypes from 'prop-types';
+import Logo from './component/images/logo1.png';
+import Form from './component/login/Form';
+import Wallpaper from './component/login/Wallpaper';
+import ButtonSubmit from './component/login/ButtonSubmit'
+import SignupSection from '.component/login/SignupSection';
+
+export default class LoginScreen extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>Login</Text>
-    
-      </View>
+      <Wallpaper>
+        <Logo />
+        <Form />
+        <SignupSection />
+        <ButtonSubmit />
+      </Wallpaper>
     );
   }
 }
